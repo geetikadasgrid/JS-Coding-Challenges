@@ -1,0 +1,27 @@
+// ### Carrying
+
+// Write a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
+
+// For example, addTogether(2, 3) should return 5, and addTogether(2) should return a function.
+
+// Calling this returned function with a single argument will then return the sum.
+
+// eslint-disable-next-line consistent-return
+export function carrying(a, b) {
+  if (typeof a !== 'number' || (b !== undefined && typeof b !== 'number')) {
+    return undefined;
+  }
+
+  if (b !== undefined) {
+    return a + b;
+  }
+
+  return function (c) {
+    if (typeof c !== 'number') {
+      return undefined;
+    }
+    return a + c;
+  };
+}
+
+console.log(carrying(2, [3]));
